@@ -28,16 +28,26 @@ interface Charity {
   };
 }
 
-interface Names {
-  name: string;
-}
-
 const FindYourCharity: React.FC = () => {
-  const SelectOption = (props: any) => (
-    <option value="">{props.defaultOption}</option>
-  );
+  // const SelectOption = (props: any) => (
+  //   <option value="">{props.defaultOption}</option>
+  // );
+
+  function noRepetitiveStrings(arr: string[]): string[] {
+    const noStringsRepeatingOnArray = arr.filter((str, index) => {
+      return arr.indexOf(str) === index;
+    });
+
+    return noStringsRepeatingOnArray;
+  }
 
   const [charities, setCharities] = useState<Charity[]>([]);
+
+  const [countryName, setCountryName] = useState<string[]>([]);
+
+  const [themeName, setThemeName] = useState<string[]>([]);
+
+  const [organizationName, setOrganizationName] = useState<string[]>([]);
 
   useEffect(() => {
     async function loadCharities(): Promise<void> {
@@ -51,22 +61,33 @@ const FindYourCharity: React.FC = () => {
         },
       );
 
-      const getProjectFromAPI = response.data.projects.project;
+      const getProjectFromAPI: Charity[] = response.data.projects.project;
 
       setCharities(getProjectFromAPI);
       console.log(getProjectFromAPI);
+
+      const arrayOfOrganizationsNames = getProjectFromAPI.map(
+        charity => charity.organization.name,
+      );
+      setOrganizationName(noRepetitiveStrings(arrayOfOrganizationsNames));
+
+      const arrayOfThemesNames: string[] = [];
+      getProjectFromAPI.map(charity =>
+        charity.themes.theme.map(names => arrayOfThemesNames.push(names.name)),
+      );
+      setThemeName(noRepetitiveStrings(arrayOfThemesNames));
+
+      const arrayOfCountriesNames: string[] = [];
+      getProjectFromAPI.map(charity =>
+        charity.countries.country.map(countries =>
+          arrayOfCountriesNames.push(countries.name),
+        ),
+      );
+      setCountryName(noRepetitiveStrings(arrayOfCountriesNames));
     }
 
     loadCharities();
   }, []);
-
-  function noRepetitiveStrings(arr: string[]): string[] {
-    const noStringsRepeatingOnArray = arr.filter((str, index) => {
-      return arr.indexOf(str) === index;
-    });
-
-    return noStringsRepeatingOnArray;
-  }
 
   return (
     <>
@@ -76,15 +97,24 @@ const FindYourCharity: React.FC = () => {
         <HorizontalLine />
         <SelectContainer>
           <select>
-            <SelectOption defaultOption="Organization Name" />
+            <option value="">Organization Name</option>
+            {organizationName.map(name => (
+              <option value={name}>{name}</option>
+            ))}
           </select>
 
           <select>
-            <SelectOption defaultOption="Operates In" />
+            <option value="">Operates In</option>
+            {countryName.map(country => (
+              <option value={country}>{country}</option>
+            ))}
           </select>
 
           <select>
-            <SelectOption defaultOption="Themes" />
+            <option value="">Themes</option>
+            {themeName.map(themes => (
+              <option value={themes}>{themes}</option>
+            ))}
           </select>
         </SelectContainer>
       </Container>
