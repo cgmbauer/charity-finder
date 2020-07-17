@@ -1,4 +1,4 @@
-import React, { useState, useEffect, MouseEvent } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Link } from 'react-router-dom';
 
@@ -23,7 +23,7 @@ const Header: React.FC = () => {
       setOpen(false);
     }
   }
-  // && !menuBlock.current.contains(e.target as Node)
+
   useEffect(() => {
     document.addEventListener('mouseup', handleClickOutside);
     return () => {
