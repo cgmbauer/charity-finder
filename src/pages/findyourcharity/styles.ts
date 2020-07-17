@@ -32,6 +32,7 @@ export const SelectContainer = styled.div`
 
   select {
     width: 235px;
+    height: 30px;
 
     text-align-last: center;
     font-family: 'Poppins', 'sans-serif';
@@ -46,24 +47,5 @@ export const SelectContainer = styled.div`
     & + select {
       margin-left: 35px;
     }
-
-    option {
-      text-align-last: center;
-      text-align: center;
-      font-family: 'Poppins', 'sans-serif';
-      font-weight: 400;
-      font-style: italic;
-
-      background-color: #fff;
-    }
-  }
-  option {
-    text-align-last: center;
-    text-align: center;
-    font-family: 'Poppins', 'sans-serif';
-    font-weight: 400;
-    font-style: italic;
-
-    background-color: #fff;
   }
 `;
