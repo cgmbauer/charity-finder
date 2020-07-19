@@ -89,6 +89,39 @@ const FindYourCharity: React.FC = () => {
     loadCharities();
   }, []);
 
+  const [orgNameBoolean, setOrgNameBoolean] = useState<boolean>(false);
+
+  const [operatesInBoolean, setOperatesInBoolean] = useState<boolean>(false);
+
+  const [themeBoolean, setThemeBoolean] = useState<boolean>(false);
+
+  function giveMeValue(e: any): void {
+    const { value } = e.target;
+
+    switch (value) {
+      case 'OrganizationName':
+        setOrgNameBoolean(true);
+        setOperatesInBoolean(false);
+        setThemeBoolean(false);
+        break;
+      case 'OperatesIn':
+        setOrgNameBoolean(false);
+        setOperatesInBoolean(true);
+        setThemeBoolean(false);
+        break;
+      case 'Themes':
+        setOrgNameBoolean(false);
+        setOperatesInBoolean(false);
+        setThemeBoolean(true);
+        break;
+      default:
+        setOrgNameBoolean(false);
+        setOperatesInBoolean(false);
+        setThemeBoolean(false);
+        break;
+    }
+  }
+
   return (
     <>
       <Header />
@@ -96,26 +129,36 @@ const FindYourCharity: React.FC = () => {
         <h3>FIND YOUR CHARITY</h3>
         <HorizontalLine />
         <SelectContainer>
-          <select>
-            <option value="">Organization Name</option>
-            {organizationName.map(name => (
-              <option value={name}>{name}</option>
-            ))}
+          <select onClick={giveMeValue}>
+            <option value="Select">Select Filter</option>
+            <option value="OrganizationName">Organization Name</option>
+            <option value="OperatesIn">Operates In</option>
+            <option value="Themes">Themes</option>
           </select>
 
-          <select>
-            <option value="">Operates In</option>
-            {countryName.map(country => (
-              <option value={country}>{country}</option>
-            ))}
-          </select>
+          {orgNameBoolean && (
+            <select>
+              {organizationName.map(name => (
+                <option value={name}>{name}</option>
+              ))}
+            </select>
+          )}
 
-          <select>
-            <option value="">Themes</option>
-            {themeName.map(themes => (
-              <option value={themes}>{themes}</option>
-            ))}
-          </select>
+          {operatesInBoolean && (
+            <select>
+              {countryName.map(country => (
+                <option value={country}>{country}</option>
+              ))}
+            </select>
+          )}
+
+          {themeBoolean && (
+            <select>
+              {themeName.map(themes => (
+                <option value={themes}>{themes}</option>
+              ))}
+            </select>
+          )}
         </SelectContainer>
       </Container>
     </>
