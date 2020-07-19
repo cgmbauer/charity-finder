@@ -19,7 +19,7 @@ const Header: React.FC = () => {
   }
 
   function handleClickOutside(e: any): void {
-    if (menuBlock && !menuBlock.current?.contains(e.target)) {
+    if (menuBlock && !menuBlock.current?.contains(e.target as Node)) {
       setOpen(false);
     }
   }
