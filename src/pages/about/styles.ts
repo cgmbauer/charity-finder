@@ -46,6 +46,11 @@ export const AboutContainer = styled.div`
     background-color: #ff6f00;
     color: #fff;
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.75);
+
+    transition: opacity 0.3s;
+    &:hover {
+      opacity: 0.85;
+    }
   }
 `;
 
