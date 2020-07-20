@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { AboutContainer, HorizontalLine } from './styles';
+import {
+  AboutContainer,
+  HorizontalLine,
+  GlobalGivingContainer,
+} from './styles';
 
 import Header from '../../components/header';
 
@@ -21,8 +25,33 @@ const About: React.FC = () => {
           <span />
           Let’s get started?
         </p>
+
         <Link to="/">LET'S GO!</Link>
       </AboutContainer>
+
+      <GlobalGivingContainer>
+        <h3>GlobalGiving</h3>
+        <HorizontalLine />
+
+        <p>
+          <a
+            href="https://www.globalgiving.org/"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            "GlobalGiving
+          </a>{' '}
+          is the largest global crowdfunding community connecting nonprofits,
+          donors, and companies in nearly every country. We help nonprofits from
+          Afghanistan to Zimbabwe (and hundreds of places in between) access the
+          tools, training, and support they need to be more effective and make
+          our world a better place.”
+        </p>
+        <p>
+          If you want to know more about this organization, feel free to contact
+          them at:
+        </p>
+      </GlobalGivingContainer>
     </>
   );
 };
