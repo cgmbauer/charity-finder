@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { AboutContainer, HorizontalLine } from './styles';
 
 import Header from '../../components/header';
