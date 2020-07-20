@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Container, HorizontalLine, SelectContainer } from './styles';
+import { MdExpandMore } from 'react-icons/md';
+
+import {
+  Container,
+  HorizontalLine,
+  SelectContainer,
+  Background,
+} from './styles';
 
 import api from '../../services/api';
 
@@ -29,10 +36,6 @@ interface Charity {
 }
 
 const FindYourCharity: React.FC = () => {
-  // const SelectOption = (props: any) => (
-  //   <option value="">{props.defaultOption}</option>
-  // );
-
   function noRepetitiveStrings(arr: string[]): string[] {
     const noStringsRepeatingOnArray = arr.filter((str, index) => {
       return arr.indexOf(str) === index;
@@ -125,6 +128,10 @@ const FindYourCharity: React.FC = () => {
   return (
     <>
       <Header />
+      <Background>
+        <h1>FIND YOUR PERFECT CHARITY</h1>
+        <MdExpandMore size={65} color="#ffa040" />
+      </Background>
       <Container>
         <h3>FIND YOUR CHARITY</h3>
         <HorizontalLine />
@@ -138,6 +145,7 @@ const FindYourCharity: React.FC = () => {
 
           {orgNameBoolean && (
             <select>
+              <option value="">Organizations Names</option>
               {organizationName.map(name => (
                 <option value={name}>{name}</option>
               ))}
@@ -146,6 +154,7 @@ const FindYourCharity: React.FC = () => {
 
           {operatesInBoolean && (
             <select>
+              <option value="">Countries</option>
               {countryName.map(country => (
                 <option value={country}>{country}</option>
               ))}
@@ -154,6 +163,7 @@ const FindYourCharity: React.FC = () => {
 
           {themeBoolean && (
             <select>
+              <option value="">Charities Themes</option>
               {themeName.map(themes => (
                 <option value={themes}>{themes}</option>
               ))}
