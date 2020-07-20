@@ -1,9 +1,60 @@
 import styled from 'styled-components';
 
+import backgroundImg from '../../assets/showcase1-maxwhite.jpg';
+
+export const Background = styled.div`
+  background-image: url(${backgroundImg}),
+    radial-gradient(
+      circle,
+      rgba(224, 224, 224, 1) 0%,
+      rgba(216, 216, 216, 1) 50%,
+      rgba(224, 224, 224, 1) 100%
+    );
+  background-blend-mode: overlay;
+  background-size: cover;
+  background-position: center;
+
+  overflow: hidden;
+
+  text-align: center;
+
+  height: 100vh;
+  width: 100%;
+
+  margin-top: 70px;
+
+  h1 {
+    margin-top: 360px;
+    font: 700 61px 'Roboto', 'sans-serif';
+    color: #ff6f00;
+    text-shadow: 1.3px 1.3px #000000;
+  }
+
+  @keyframes changeSize {
+    from {
+      transform: scale(1, 1);
+    }
+    to {
+      transform: scale(1.3, 1.3);
+    }
+  }
+
+  svg {
+    margin-top: 60px;
+
+    animation-duration: 0.7s;
+    animation-name: changeSize;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+`;
+
 export const Container = styled.div`
   text-align: center;
 
   padding-top: 85px;
+
+  height: 100vh;
 
   h3 {
     font-family: 'Roboto', sans-serif;
@@ -11,6 +62,7 @@ export const Container = styled.div`
     font-size: 47px;
 
     margin-bottom: 0;
+    margin-top: 20px;
     padding-bottom: 0;
   }
 `;
