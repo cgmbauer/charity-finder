@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 import { DropContent, DropDown, HeaderContainer } from './styles';
 
-import logoImg from '../../assets/CharityFinderLogo210x30.jpg';
+import logoImg from '../../assets/CharityFinder-logo.png';
 
 const Header: React.FC = () => {
   const wWidth = window.innerWidth;
