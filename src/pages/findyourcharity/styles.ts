@@ -54,8 +54,6 @@ export const Container = styled.div`
 
   padding-top: 85px;
 
-  height: 100vh;
-
   h3 {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
@@ -98,6 +96,56 @@ export const SelectContainer = styled.div`
 
     & + select {
       margin-left: 35px;
+    }
+  }
+`;
+
+export const CardsContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 5px;
+
+  margin-top: 30px;
+  margin-bottom: 150px;
+`;
+
+export const Card = styled.div`
+  width: 350px;
+
+  margin: 25px auto 0 auto;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  a {
+    width: 100%;
+
+    cursor: pointer;
+
+    img {
+      width: 350px;
+      height: 200px;
+    }
+  }
+
+  h4 {
+    text-align: center;
+
+    margin-bottom: 15px;
+    margin-top: 5px;
+  }
+
+  ul {
+    list-style: none;
+
+    margin-left: 4px;
+
+    li {
+      margin-bottom: 15px;
     }
   }
 `;
