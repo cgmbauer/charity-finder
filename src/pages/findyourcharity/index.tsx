@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { MdExpandMore } from 'react-icons/md';
 
 import {
@@ -6,11 +6,13 @@ import {
   HorizontalLine,
   SelectContainer,
   Background,
+  CardsContainer,
+  Card,
 } from './styles';
 
 import api from '../../services/api';
 
-// import cardImg from '../../assets/cardy_dummy.jpg';
+import cardImg from '../../assets/cardDummy.jpg';
 
 import Header from '../../components/header';
 
@@ -36,13 +38,13 @@ interface Charity {
 }
 
 const FindYourCharity: React.FC = () => {
-  function noRepetitiveStrings(arr: string[]): string[] {
+  const noRepetitiveStrings = useCallback((arr: string[]) => {
     const noStringsRepeatingOnArray = arr.filter((str, index) => {
       return arr.indexOf(str) === index;
     });
 
     return noStringsRepeatingOnArray;
-  }
+  }, []);
 
   const [charities, setCharities] = useState<Charity[]>([]);
 
@@ -90,60 +92,35 @@ const FindYourCharity: React.FC = () => {
     }
 
     loadCharities();
-  }, []);
+  }, [noRepetitiveStrings]);
 
-  const [orgNameBoolean, setOrgNameBoolean] = useState<boolean>(false);
+  const [selectedValue, setSelectedValue] = useState<string>('');
 
-  const [operatesInBoolean, setOperatesInBoolean] = useState<boolean>(false);
-
-  const [themeBoolean, setThemeBoolean] = useState<boolean>(false);
-
-  function giveMeValue(e: any): void {
+  const checkValues = useCallback((e: any) => {
     const { value } = e.target;
 
-    switch (value) {
-      case 'OrganizationName':
-        setOrgNameBoolean(true);
-        setOperatesInBoolean(false);
-        setThemeBoolean(false);
-        break;
-      case 'OperatesIn':
-        setOrgNameBoolean(false);
-        setOperatesInBoolean(true);
-        setThemeBoolean(false);
-        break;
-      case 'Themes':
-        setOrgNameBoolean(false);
-        setOperatesInBoolean(false);
-        setThemeBoolean(true);
-        break;
-      default:
-        setOrgNameBoolean(false);
-        setOperatesInBoolean(false);
-        setThemeBoolean(false);
-        break;
-    }
-  }
+    setSelectedValue(value);
+  }, []);
 
   return (
     <>
       <Header />
       <Background>
         <h1>FIND YOUR PERFECT CHARITY</h1>
-        <MdExpandMore size={65} color="#ffa040" />
+        <MdExpandMore size={65} color="#ff6f00" />
       </Background>
       <Container>
         <h3>FIND YOUR CHARITY</h3>
         <HorizontalLine />
         <SelectContainer>
-          <select onClick={giveMeValue}>
-            <option value="Select">Select Filter</option>
+          <select onClick={checkValues}>
+            <option value="">Select Filter</option>
             <option value="OrganizationName">Organization Name</option>
             <option value="OperatesIn">Operates In</option>
             <option value="Themes">Themes</option>
           </select>
 
-          {orgNameBoolean && (
+          {selectedValue === 'OrganizationName' && (
             <select>
               <option value="">Organizations Names</option>
               {organizationName.map(name => (
@@ -152,7 +129,7 @@ const FindYourCharity: React.FC = () => {
             </select>
           )}
 
-          {operatesInBoolean && (
+          {selectedValue === 'OperatesIn' && (
             <select>
               <option value="">Countries</option>
               {countryName.map(country => (
@@ -161,7 +138,7 @@ const FindYourCharity: React.FC = () => {
             </select>
           )}
 
-          {themeBoolean && (
+          {selectedValue === 'Themes' && (
             <select>
               <option value="">Charities Themes</option>
               {themeName.map(themes => (
@@ -171,6 +148,43 @@ const FindYourCharity: React.FC = () => {
           )}
         </SelectContainer>
       </Container>
+      <CardsContainer>
+        <Card>
+          <a href="">
+            <img src={cardImg} alt="happy dog" />
+          </a>
+          <h4>ANIMAL'S FRIENDS</h4>
+          <ul>
+            <li>Project Name: Rescuing animals.</li>
+            <li>Themes: Rescuing animals.</li>
+            <li>Operates in: Brazil</li>
+          </ul>
+        </Card>
+
+        <Card>
+          <a href="">
+            <img src={cardImg} alt="happy dog" />
+          </a>
+          <h4>ANIMAL'S FRIENDS</h4>
+          <ul>
+            <li>Project Name: Rescuing animals.</li>
+            <li>Themes: Rescuing animals.</li>
+            <li>Operates in: Brazil</li>
+          </ul>
+        </Card>
+
+        <Card>
+          <a href="">
+            <img src={cardImg} alt="happy dog" />
+          </a>
+          <h4>ANIMAL'S FRIENDS</h4>
+          <ul>
+            <li>Project Name: Rescuing animals.</li>
+            <li>Themes: Rescuing animals.</li>
+            <li>Operates in: Brazil</li>
+          </ul>
+        </Card>
+      </CardsContainer>
     </>
   );
 };
