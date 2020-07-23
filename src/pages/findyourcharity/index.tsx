@@ -57,7 +57,7 @@ const FindYourCharity: React.FC = () => {
   useEffect(() => {
     async function loadCharities(): Promise<void> {
       const response = await api.get(
-        '/public/projectservice/all/projects/active?api_key=5772bea8-1d42-4825-b726-17b12f1cd23e',
+        '/public/projectservice/all/projects/active?api_key=API_KEY',
         {
           headers: {
             accept: 'application/json',
