@@ -47,7 +47,8 @@
       {
         "allowExpressions": true
       }
-    ]
+    ],
+    "eqeqeq":"off"
   },
   "settings": {
     "import/resolver": {
