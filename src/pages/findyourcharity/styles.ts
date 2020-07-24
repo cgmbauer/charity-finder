@@ -80,6 +80,11 @@ export const SelectContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 
+  @media (max-width: 509px) {
+    flex-direction: column;
+    align-content: center;
+  }
+
   select {
     width: 235px;
     height: 30px;
@@ -97,16 +102,25 @@ export const SelectContainer = styled.div`
     & + select {
       margin-left: 35px;
     }
+
+    @media (max-width: 509px) {
+      & + select {
+        margin-left: 0;
+        margin-top: 15px;
+      }
+    }
   }
 `;
 
 export const CardsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 5px;
+  gap: 8px;
+  justify-content: center;
 
-  margin-top: 30px;
-  margin-bottom: 150px;
+  margin: 30px auto 150px auto;
+
+  width: 70%;
 `;
 
 export const Card = styled.div`
@@ -134,18 +148,71 @@ export const Card = styled.div`
 
   h4 {
     text-align: center;
+    font-size: 17px;
+    color: #c43e00;
 
     margin-bottom: 15px;
     margin-top: 5px;
   }
 
-  ul {
-    list-style: none;
+  > div {
+    display: flex;
+    flex-direction: column;
 
-    margin-left: 4px;
+    margin-bottom: 22px;
 
-    li {
-      margin-bottom: 15px;
+    h5 {
+      font-size: 15px;
+      font-family: 'Poppins', 'sans-serif';
+      font-weight: 400;
+
+      margin-left: 9px;
     }
+
+    p {
+      display: inline-block;
+      width: 290px;
+
+      font-family: 'Poppins', 'sans-serif';
+      font-weight: 700;
+      font-size: 15px;
+      color: #fff;
+      text-align: center;
+      margin: 18px auto 0 auto;
+      padding: 6px;
+
+      background-color: #ff6f00;
+
+      border-radius: 5px;
+    }
+  }
+`;
+
+export const TagsGrid = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  width: 290px;
+  margin: 0 auto;
+
+  span {
+    align-self: center;
+
+    display: inline-block;
+    width: 130px;
+
+    font-family: 'Poppins', 'sans-serif';
+    font-weight: 700;
+    font-size: 15px;
+    color: #fff;
+    text-align: center;
+
+    padding: 6px;
+    margin-top: 18px;
+
+    background-color: #ff6f00;
+
+    border-radius: 5px;
   }
 `;
