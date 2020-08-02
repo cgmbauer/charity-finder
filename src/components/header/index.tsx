@@ -8,7 +8,7 @@ import { DropContent, DropDown, HeaderContainer } from './styles';
 import logoImg from '../../assets/CharityFinder-logo.png';
 
 const Header: React.FC = () => {
-  const wWidth = window.innerWidth;
+  const windowWidth = window.innerWidth;
 
   const menuBlock = React.createRef<HTMLDivElement>();
 
@@ -43,13 +43,13 @@ const Header: React.FC = () => {
             <FaBars />
           </div>
           <DropContent onBlur={handleClick}>
-            {open && wWidth < 750 && (
+            {open && windowWidth < 750 && (
               <div>
                 <Link to="/"> CHARITIES </Link>
                 <Link to="/about"> ABOUT </Link>
               </div>
             )}
-            {wWidth >= 750 && (
+            {windowWidth >= 750 && (
               <div>
                 <Link to="/"> CHARITIES </Link>
                 <Link to="/about"> ABOUT </Link>
