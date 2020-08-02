@@ -8,13 +8,24 @@ export const AboutContainer = styled.div`
   margin-bottom: 0px;
 
   h3 {
+    position: relative;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 47px;
 
-    margin-bottom: 0;
-    margin-top: 20px;
+    margin: 20px auto 25px auto;
+
     padding-bottom: 0;
+  }
+
+  h3::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom: 2px solid black;
+    width: 100px;
   }
 
   p {
@@ -25,6 +36,7 @@ export const AboutContainer = styled.div`
     font-weight: 400;
     font-size: 16px;
     font-style: italic;
+    line-height: 30px;
 
     span {
       display: block;
@@ -54,29 +66,30 @@ export const AboutContainer = styled.div`
   }
 `;
 
-export const HorizontalLine = styled.div`
-  background-color: #000;
-
-  height: 1px;
-  width: 90px;
-
-  padding: 0;
-  margin: 0 auto 40px auto;
-`;
-
 export const GlobalGivingContainer = styled.div`
   text-align: center;
 
   margin-top: 65px;
 
   h3 {
+    position: relative;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 47px;
 
-    margin-bottom: 0;
-    margin-top: 20px;
+    margin: 20px auto 25px auto;
+
     padding-bottom: 0;
+  }
+
+  h3::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom: 2px solid black;
+    width: 230px;
   }
 
   p {
@@ -97,7 +110,7 @@ export const GlobalGivingContainer = styled.div`
 
   a {
     text-decoration: none;
-    color: #000000;
+    color: #ff6f00;
     font-weight: 700;
   }
 `;
