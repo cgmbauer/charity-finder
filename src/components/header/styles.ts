@@ -62,7 +62,8 @@ export const DropContent = styled.div`
   top: 54px;
 
   margin-left: -350px;
-  width: 100%;
+
+  width: 100vw;
 
   background-color: rgba(0, 0, 0, 0.8);
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -70,6 +71,7 @@ export const DropContent = styled.div`
   min-width: 160px;
 
   z-index: 1;
+
   @media (min-width: 750px) {
     position: static;
 
