@@ -110,8 +110,22 @@ export const DropContent = styled.div`
       margin-top: 8px;
       margin-bottom: 8px;
 
+      transition: 0.3s;
+
       &:hover {
         color: #ffffff;
+        text-decoration: underline;
+      }
+
+      &.selected {
+        text-decoration: underline;
+        color: #fff;
+
+        transition: opacity 0.3s;
+
+        &:hover {
+          opacity: 0.8;
+        }
       }
 
       @media (min-width: 750px) {
