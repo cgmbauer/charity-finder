@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { MdExpandMore } from 'react-icons/md';
 
-import { title } from 'process';
 import {
   Container,
-  HorizontalLine,
   SelectContainer,
   Background,
   CardsContainer,
@@ -181,15 +179,13 @@ const FindYourCharity: React.FC = () => {
       if (charitiesFiltered) {
         setCardsInfo(charitiesFiltered);
       }
-
-      console.log(charitiesFiltered);
     },
     [charities, selectedValue],
   );
 
   useEffect(() => {
     function reloadCards(): void {
-      if (selectedValue == 'filterby' || !filteredValues) {
+      if (selectedValue == 'filterby' || filteredValues === '0') {
         setCardsInfo(charities);
       }
     }
@@ -206,7 +202,6 @@ const FindYourCharity: React.FC = () => {
       </Background>
       <Container>
         <h3>FIND YOUR CHARITY</h3>
-        <HorizontalLine />
         <SelectContainer>
           <select onClick={getFilterValue}>
             <option value="filterby">Filter By</option>
@@ -217,7 +212,7 @@ const FindYourCharity: React.FC = () => {
 
           {selectedValue === 'organization' && (
             <select id="" title="name" onClick={handleValuesFiltered}>
-              <option value="">Select Organization</option>
+              <option value="0">Select Organization</option>
               {organizationName.map(name => (
                 <option value={name}>{name}</option>
               ))}
@@ -226,7 +221,7 @@ const FindYourCharity: React.FC = () => {
 
           {selectedValue === 'countries' && (
             <select id="country" title="name" onClick={handleValuesFiltered}>
-              <option value="">Countries</option>
+              <option value="0">Countries</option>
               {countryName.map(country => (
                 <option value={country}>{country}</option>
               ))}
@@ -235,7 +230,7 @@ const FindYourCharity: React.FC = () => {
 
           {selectedValue === 'themes' && (
             <select id="theme" title="name" onClick={handleValuesFiltered}>
-              <option value="">Charities Themes</option>
+              <option value="0">Charities Themes</option>
               {themeName.map(themes => (
                 <option value={themes}>{themes}</option>
               ))}
@@ -244,26 +239,30 @@ const FindYourCharity: React.FC = () => {
         </SelectContainer>
       </Container>
       <CardsContainer>
-        {cardsInfo.map(charities => (
-          <Card key={charities.id}>
-            <a href={charities.contactUrl}>
+        {cardsInfo.map(charity => (
+          <Card key={charity.id}>
+            <a
+              href={charity.contactUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img
-                src={charities.image.imagelink[3].url}
-                alt={charities.organization.name}
+                src={charity.image.imagelink[3].url}
+                alt={charity.organization.name}
               />
             </a>
 
-            <h4>{charities.organization.name}</h4>
+            <h4>{charity.organization.name}</h4>
 
             <div>
               <h5> Project Name </h5>
-              <p>{charities.title}</p>
+              <p>{charity.title}</p>
             </div>
 
             <div>
               <h5> Themes </h5>
               <TagsGrid>
-                {charities.themes.theme.map(theme => (
+                {charity.themes.theme.map(theme => (
                   <span key={theme.name}>{theme.name}</span>
                 ))}
               </TagsGrid>
@@ -272,7 +271,7 @@ const FindYourCharity: React.FC = () => {
             <div>
               <h5> Operates In </h5>
               <TagsGrid>
-                {charities.countries.country.map(country => (
+                {charity.countries.country.map(country => (
                   <span key={country.name}>{country.name}</span>
                 ))}
               </TagsGrid>
