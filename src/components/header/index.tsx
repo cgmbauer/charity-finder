@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { FaBars } from 'react-icons/fa';
 import { DropContent, DropDown, HeaderContainer } from './styles';
@@ -34,6 +34,9 @@ const Header: React.FC = () => {
     };
   });
 
+  const linkActivated = {
+    color: 'red',
+  };
   return (
     <>
       <HeaderContainer>
@@ -45,14 +48,18 @@ const Header: React.FC = () => {
           <DropContent onBlur={handleClick}>
             {open && windowWidth < 750 && (
               <div>
-                <Link to="/"> CHARITIES </Link>
-                <Link to="/about"> ABOUT </Link>
+                <NavLink to="/">CHARITIES</NavLink>
+                <NavLink to="/about">ABOUT</NavLink>
               </div>
             )}
             {windowWidth >= 750 && (
               <div>
-                <Link to="/"> CHARITIES </Link>
-                <Link to="/about"> ABOUT </Link>
+                <NavLink activeClassName="selected" exact to="/">
+                  CHARITIES
+                </NavLink>
+                <NavLink activeClassName="selected" to="/about">
+                  ABOUT
+                </NavLink>
               </div>
             )}
           </DropContent>
