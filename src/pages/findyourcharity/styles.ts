@@ -55,24 +55,25 @@ export const Container = styled.div`
   padding-top: 85px;
 
   h3 {
+    position: relative;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 47px;
 
-    margin-bottom: 0;
-    margin-top: 20px;
+    margin: 20px auto 0 auto;
+
     padding-bottom: 0;
   }
-`;
 
-export const HorizontalLine = styled.div`
-  background-color: #000;
-
-  height: 1px;
-  width: 230px;
-
-  padding: 0;
-  margin: 0 auto 60px auto;
+  h3::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom: 2px solid black;
+    width: 300px;
+  }
 `;
 
 export const SelectContainer = styled.div`
@@ -80,14 +81,16 @@ export const SelectContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 
+  margin-top: 60px;
+
   @media (max-width: 509px) {
     flex-direction: column;
     align-content: center;
   }
 
   select {
-    width: 235px;
-    height: 30px;
+    width: 250px;
+    height: 40px;
 
     text-align-last: center;
     font-family: 'Poppins', 'sans-serif';
