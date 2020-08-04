@@ -113,4 +113,18 @@ export const GlobalGivingContainer = styled.div`
     color: #ff6f00;
     font-weight: 700;
   }
+
+  > a {
+    color: #ff6f00;
+
+    & + a {
+      margin-left: 10px;
+    }
+
+    svg {
+      font-size: 35px;
+
+      margin-top: 10px;
+    }
+  }
 `;
