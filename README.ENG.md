@@ -13,7 +13,14 @@ This is a web page made using Global Giving API, to find charities around the gl
 
 - [Axios v.0.19.2](https://github.com/axios/axios)
 
+- [Styled Components](https://github.com/styled-components/styled-components)
+
+- [Typescript](https://www.typescriptlang.org/)
+
 - [GlobalGiving API](https://www.globalgiving.org/api/getting-started/)
+
+## How to use
+
 
 ## Acknowledgments
 
@@ -22,6 +29,8 @@ This is a web page made using Global Giving API, to find charities around the gl
 - [Global Giving](https://www.globalgiving.org/) for the API;
 
 - [Font Awesome](https://fontawesome.com/) and [Google Fonts](https://fonts.google.com/);
+
+- [Brenda Profiro](https://github.com/bprofiro) for the guidance;
 
 - [Florinpop17](https://github.com/florinpop17/app-ideas/blob/master/Projects/2-Intermediate/Charity-Finder-App.md) for the project idea;
 
