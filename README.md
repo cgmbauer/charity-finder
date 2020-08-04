@@ -13,8 +13,9 @@ Aplicação web feita para facilitar o engajamento do usuário com instituiçõe
 Com esta plataforma, o usuário poderá encontrar projetos de caridades espalhados pelo mundo inteiro, filtrando-os por "Local de Atuação", "Temas" e "Nome da Instituição".   
 Assim fica bem mais fácil encontrar aquele projeto com o qual você mais se identifica!
 
+![Chairy Finder gif](https://github.com/cgmbauer/assets/blob/master/gifs/charityfinder.gif)
 
-# Table of contents
+# Indice
 1. [Ferramentas](#Ferramentas)
 2. [Como Utilizar?](#Como_Utilizar)
     1. [Pré-requesitos](#Pre-requesitos)
@@ -68,15 +69,15 @@ Após isto, o site estará pronto para ser utilizado!
 
 ## Agradecimentos <a name="Agradecimentos"></a>
 
-- [Suraphat Nuea-on](https://www.pexels.com/pt-br/@suraphat) for the free images;
+- [Suraphat Nuea-on](https://www.pexels.com/pt-br/@suraphat) por disponibilzar as imagens;
 
-- [Global Giving](https://www.globalgiving.org/) for the API;
+- [Global Giving](https://www.globalgiving.org/) pela API e prontidão dar soluções;
 
-- [Font Awesome](https://fontawesome.com/) and [Google Fonts](https://fonts.google.com/);
+- [Font Awesome](https://fontawesome.com/) e [Google Fonts](https://fonts.google.com/);
 
-- [Brenda Profiro](https://github.com/bprofiro) for the guidance;
+- [Brenda Profiro](https://github.com/bprofiro) por me mentorar;
 
-- [Florinpop17](https://github.com/florinpop17/app-ideas/blob/master/Projects/2-Intermediate/Charity-Finder-App.md) for the project idea;
+- [Florinpop17](https://github.com/florinpop17/app-ideas/blob/master/Projects/2-Intermediate/Charity-Finder-App.md) pela dica do projeto;
 
 
 ## Formato dos dados recebidos pela API: <a name="Dados_API"></a>
@@ -213,4 +214,5 @@ Os dados serão recebidos no formato JSON, com a seguinte estrutura:
          },
 ```
 
-### More about it soon
+### Projeto em andamento
+Mais detalhes serão atualizados aqui no futuro!
