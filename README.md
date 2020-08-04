@@ -15,7 +15,7 @@ Assim fica bem mais fácil encontrar aquele projeto com o qual você mais se ide
 
 ![Chairy Finder gif](https://github.com/cgmbauer/assets/blob/master/gifs/charityfinder.gif)
 
-# Indice
+## Indice
 1. [Ferramentas](#Ferramentas)
 2. [Como Utilizar?](#Como_Utilizar)
     1. [Pré-requesitos](#Pre-requesitos)
