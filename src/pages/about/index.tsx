@@ -1,5 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {
+  FaTwitterSquare,
+  FaFacebookSquare,
+  FaInstagramSquare,
+} from 'react-icons/fa';
 import { AboutContainer, GlobalGivingContainer } from './styles';
 
 import Header from '../../components/header';
@@ -32,8 +37,7 @@ const About: React.FC = () => {
             target="_blank"
             rel="noreferrer noopener"
           >
-            GlobalGiving
-{' '}
+            GlobalGiving{' '}
           </a>
           is the largest global crowdfunding community connecting nonprofits,
           donors, and companies in nearly every country. We help nonprofits from
@@ -45,6 +49,29 @@ const About: React.FC = () => {
           If you want to know more about this organization, feel free to contact
           them at:
         </p>
+        <a
+          href="https://www.facebook.com/GlobalGiving/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaFacebookSquare />
+        </a>
+
+        <a
+          href="https://twitter.com/globalgiving"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaTwitterSquare />
+        </a>
+
+        <a
+          href="https://www.instagram.com/globalgiving/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaInstagramSquare />
+        </a>
       </GlobalGivingContainer>
     </>
   );
