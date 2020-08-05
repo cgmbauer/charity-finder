@@ -12,8 +12,6 @@ import {
 
 import api from '../../services/api';
 
-import cardImg from '../../assets/cardDummy.jpg';
-
 import Header from '../../components/header';
 
 interface Charity {
@@ -96,30 +94,33 @@ const FindYourCharity: React.FC = () => {
         },
       );
 
-      const getProjectFromAPI: Charity[] = response.data.projects.project;
+      if (response.data.projects.project) {
+        const getProjectFromAPI: Charity[] = response.data.projects.project;
 
-      setCharities(getProjectFromAPI);
-      setCardsInfo(getProjectFromAPI);
-      console.log(getProjectFromAPI);
+        setCharities(getProjectFromAPI);
+        setCardsInfo(getProjectFromAPI);
 
-      const arrayOfOrganizationsNames = getProjectFromAPI.map(
-        charity => charity.organization.name,
-      );
-      setOrganizationName(noRepetitiveStrings(arrayOfOrganizationsNames));
+        const arrayOfOrganizationsNames = getProjectFromAPI.map(
+          charity => charity.organization.name,
+        );
+        setOrganizationName(noRepetitiveStrings(arrayOfOrganizationsNames));
 
-      const arrayOfThemesNames: string[] = [];
-      getProjectFromAPI.map(charity =>
-        charity.themes.theme.map(names => arrayOfThemesNames.push(names.name)),
-      );
-      setThemeName(noRepetitiveStrings(arrayOfThemesNames));
+        const arrayOfThemesNames: string[] = [];
+        getProjectFromAPI.map(charity =>
+          charity.themes.theme.map(names =>
+            arrayOfThemesNames.push(names.name),
+          ),
+        );
+        setThemeName(noRepetitiveStrings(arrayOfThemesNames));
 
-      const arrayOfCountriesNames: string[] = [];
-      getProjectFromAPI.map(charity =>
-        charity.countries.country.map(countries =>
-          arrayOfCountriesNames.push(countries.name),
-        ),
-      );
-      setCountryName(noRepetitiveStrings(arrayOfCountriesNames));
+        const arrayOfCountriesNames: string[] = [];
+        getProjectFromAPI.map(charity =>
+          charity.countries.country.map(countries =>
+            arrayOfCountriesNames.push(countries.name),
+          ),
+        );
+        setCountryName(noRepetitiveStrings(arrayOfCountriesNames));
+      }
     }
 
     loadCharities();
@@ -146,38 +147,40 @@ const FindYourCharity: React.FC = () => {
 
       let charitiesFiltered: Charity[] = [];
 
-      if (typeof charities[0][firstLevelObjectKey] === 'object') {
-        // object
-        if (
-          typeof charities[0][firstLevelObjectKey][secondLevelObjectKey] ===
-          'object'
-        ) {
+      if (charities.length > 0) {
+        if (typeof charities[0][firstLevelObjectKey] === 'object') {
           // object
-          charities.filter(charity =>
-            charity[firstLevelObjectKey][
-              secondLevelObjectKey
-            ].map((key: Keys) =>
-              key[objectKeyName] == objectKeyValue
-                ? charitiesFiltered.push(charity)
-                : false,
-            ),
-          );
+          if (
+            typeof charities[0][firstLevelObjectKey][secondLevelObjectKey] ===
+            'object'
+          ) {
+            // object
+            charities.filter(charity =>
+              charity[firstLevelObjectKey][
+                secondLevelObjectKey
+              ].map((key: Keys) =>
+                key[objectKeyName] == objectKeyValue
+                  ? charitiesFiltered.push(charity)
+                  : false,
+              ),
+            );
+          } else {
+            // string ou number
+            charitiesFiltered = charities.filter(
+              charity =>
+                charity[firstLevelObjectKey][objectKeyName] == objectKeyValue,
+            );
+          }
         } else {
           // string ou number
           charitiesFiltered = charities.filter(
-            charity =>
-              charity[firstLevelObjectKey][objectKeyName] == objectKeyValue,
+            charity => charity[firstLevelObjectKey] == objectKeyValue,
           );
         }
-      } else {
-        // string ou number
-        charitiesFiltered = charities.filter(
-          charity => charity[firstLevelObjectKey] == objectKeyValue,
-        );
-      }
 
-      if (charitiesFiltered) {
-        setCardsInfo(charitiesFiltered);
+        if (charitiesFiltered) {
+          setCardsInfo(charitiesFiltered);
+        }
       }
     },
     [charities, selectedValue],
