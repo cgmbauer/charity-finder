@@ -9,7 +9,7 @@
 
 # Charity Finder
 
-Aplicação web feita para facilitar o engajamento do usuário com instituições de caridades.  
+Aplicação web feita para facilitar o engajamento do usuário com projetos de caridades.  
 Com esta plataforma, o usuário poderá encontrar projetos de caridades espalhados pelo mundo inteiro, filtrando-os por "Local de Atuação", "Temas" e "Nome da Instituição".   
 Assim fica bem mais fácil encontrar aquele projeto com o qual você mais se identifica!
 
