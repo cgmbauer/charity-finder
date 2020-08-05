@@ -125,6 +125,12 @@ export const GlobalGivingContainer = styled.div`
       font-size: 35px;
 
       margin-top: 10px;
+
+      transition: opacity 0.3s;
+
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
 `;
