@@ -37,7 +37,7 @@ const About: React.FC = () => {
             target="_blank"
             rel="noreferrer noopener"
           >
-            GlobalGiving{' '}
+            {`GlobalGiving `}
           </a>
           is the largest global crowdfunding community connecting nonprofits,
           donors, and companies in nearly every country. We help nonprofits from
