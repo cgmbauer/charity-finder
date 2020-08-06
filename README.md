@@ -11,7 +11,7 @@
 
 Aplicação web feita para facilitar o engajamento do usuário com projetos de caridades.  
 Com esta plataforma, o usuário poderá encontrar projetos de caridades espalhados pelo mundo inteiro, filtrando-os por "Local de Atuação", "Temas" e "Nome da Instituição".   
-Assim fica bem mais fácil encontrar aquele projeto com o qual você mais se identifica!
+Assim fica bem mais fácil encontrar aquele projeto com o qual você mais se identifica! <br></br>
 
 ![Chairy Finder gif](https://github.com/cgmbauer/assets/blob/master/gifs/charityfinder.gif)
 
@@ -63,10 +63,6 @@ REACT_APP_API_KEY=
 
 Após isto, o site estará pronto para ser utilizado!
 
-###  Como Modificar? <a name="Como_modificar"></a>
-
-**EM BREVE**
-
 ## Agradecimentos <a name="Agradecimentos"></a>
 
 - [Suraphat Nuea-on](https://www.pexels.com/pt-br/@suraphat) por disponibilzar as imagens;
@@ -80,9 +76,10 @@ Após isto, o site estará pronto para ser utilizado!
 - [Florinpop17](https://github.com/florinpop17/app-ideas/blob/master/Projects/2-Intermediate/Charity-Finder-App.md) pela dica do projeto;
 
 
-## Formato dos dados recebidos pela API: <a name="Dados_API"></a>
+## Dados da API: <a name="Dados_API"></a>
 
-Os dados serão recebidos no formato JSON, com a seguinte estrutura:
+Os dados serão recebidos no formato JSON, com a seguinte estrutura:  
+
 ```json
     "project": [
          {
