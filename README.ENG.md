@@ -55,12 +55,13 @@ This makes it much easier to find the project you most identify with!  <br></br>
 After the installation process is completed, you must register on [GlobalGiving](https://www.globalgiving.org/dy/v2/developer/get-api-key.html) to get an API Key, which will be used to retrieve data from the charities.  
 GlobalGiving é uma instituição filantrópica que reune em sua plataforma diversas instituições de caridades que necessitam de ajuda.  
 
-Inside the the ```charityfinder folder```, you'll se a ```.env``` file. Put your API Key after the equal sign.
+Inside the the ```charityfinder folder```, you'll se a ```.env``` file. Put your API Key after the equal sign `=`.
 ```
 REACT_APP_API_KEY=
 ```
 
 After that, the website will be ready to be used!
+On your terminal, execute `yarn start` to initialize the application.
 
 ## Acknowledgments <a name="Acknowledgments"></a>
 
