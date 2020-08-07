@@ -56,12 +56,13 @@ Se você está interessad@ em utilizar está página de web, siga os passos abai
 Após o processo de instalação finalizar, você deve se cadastrar no [GlobalGiving](https://www.globalgiving.org/dy/v2/developer/get-api-key.html) para receber uma API Key, que será utilizada para buscar os dados das instituições de caridades.  
 GlobalGiving é uma instituição filantrópica que reune em sua plataforma diversas instituições de caridades que necessitam de ajuda.
 
-No arquivo .env, coloque sua chave após o sinal de igual(=)
+No arquivo .env, coloque sua chave após o sinal de igual `=`
 ```
 REACT_APP_API_KEY=
 ```
 
-Após isto, o site estará pronto para ser utilizado!
+Após isto, o site estará pronto para ser utilizado!  
+Execute o comando ``` yarn start ``` e a plataforma será inicializada.
 
 ## Agradecimentos <a name="Agradecimentos"></a>
 
