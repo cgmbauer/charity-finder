@@ -21,8 +21,7 @@ Assim fica bem mais fácil encontrar aquele projeto com o qual você mais se ide
     1. [Pré-requesitos](#Pre-requesitos)
     2. [Instalando](#Instalando)
     3. [Utilizando](#Utilizando)
-    4. [Como Modificar?](#Como_modificar)
-3. [Reconhecimentos](#Reconhecimentos)  
+3. [Agradecimentos](#Agradecimentos)  
 4. [Dados API](#Dados_API)
 
 ## Ferramentas: <a name="Ferramentas"></a>
@@ -211,6 +210,3 @@ Os dados serão recebidos no formato JSON, com a seguinte estrutura:
             "type": "project"
          },
 ```
-
-### Projeto em andamento
-Mais detalhes serão atualizados aqui no futuro!
